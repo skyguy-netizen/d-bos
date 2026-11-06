@@ -1,0 +1,15 @@
+scenario: "coin_game_multi_fullobs"
+n_envs: 16
+n_steps: 32
+n_minibatches: 2
+n_epochs_ppo: 2
+hidden_dim: 64
+policy_lr: 0.0005
+gamma: 0.99
+gae_lambda: 0.95
+ent_coef: 0.01
+n_train_epochs: 20000
+eval_interval: 500
+
+aa_weight: 1.0
+save_dir: ${SCRATCH_ROOT:-/scratch/gilbreth/${USER}/bos_shaping/neurips/results}/checkpoints/camready_coin_v2/

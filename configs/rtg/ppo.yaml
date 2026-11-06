@@ -1,0 +1,44 @@
+train_scenario: rescue_training
+eval_scenario: rescue
+
+epochs: 300
+parallel_envs: 512
+n_steps: 16
+learning_rate: 2.5e-4
+adam_epsilon: 1e-8
+batch_epochs: 4
+mini_batch_size: 2048
+entropy_bonus: 0.01
+gamma: 0.99
+gae_lambda: 0.95
+max_grad_norm: 5.0
+
+model: default
+pm_memory_units: 512
+pm_out_features: 512
+pm_lstm_mode: residual
+
+prediction_mode: action
+deception_bonus: (0.0, 0.0, 0.0)
+dm_memory_units: 1024
+dm_out_features: 1024
+dm_mini_batch_size: 256
+dm_max_window_size: 8
+dm_learning_rate: 2.5e-4
+dm_loss_scale: 0.1
+deception_bonus_start_timestep: 10000000
+
+bos_k: 1
+bos_lambda: 0.0
+bos_loss: v_critic
+bos_belief_init: role_bp
+bos_obs_mode: auto
+bos_obs_resample: per_window
+bos_grad_frac: 0.15
+
+eval_interval: 0
+eval_trials: 128
+checkpoint_dir: ${SCRATCH_ROOT:-/scratch/gilbreth/${USER}/bos_shaping/neurips/results}/checkpoints/rtg_kfuture/lambda0
+checkpoint_name: lambda0
+checkpoint_interval: 10000000
+bos_grad_allow_amplify: true

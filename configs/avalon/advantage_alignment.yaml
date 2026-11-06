@@ -1,0 +1,19 @@
+scenario: "avalon5"
+n_envs: 16
+n_steps: 32
+n_minibatches: 2
+n_epochs_ppo: 2
+hidden_dim: 128
+policy_lr: 0.0005
+gamma: 0.99
+gae_lambda: 0.95
+ent_coef: 0.02
+n_train_epochs: 20000
+eval_interval: 500
+
+aa_weight: 1.0
+# AA warmup + teammate mask (not in AA repo)
+aa_warmup: true
+warmup_epochs: 300
+aa_team_of_role: [0, 0, 1, 1, 1]
+save_dir: ${SCRATCH_ROOT:-/scratch/gilbreth/${USER}/bos_shaping/neurips/results}/checkpoints/avalon5_advantage_alignment_v2/

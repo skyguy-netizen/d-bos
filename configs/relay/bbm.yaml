@@ -1,0 +1,17 @@
+scenario: "belief_relay_k3"
+n_envs: 64
+n_steps: 30
+n_minibatches: 4
+n_epochs_ppo: 4
+hidden_dim: 128
+policy_lr: 0.0005
+gamma: 0.99
+gae_lambda: 0.95
+ent_coef: 0.03
+n_train_epochs: 3000
+eval_interval: 100
+lambda_dec: 0.5
+use_bbm_intrinsic: true
+warmup_epochs: 0
+device: cpu
+save_dir: ${SCRATCH_ROOT:-/scratch/gilbreth/${USER}/bos_shaping/neurips/results}/checkpoints/belief_relay/
